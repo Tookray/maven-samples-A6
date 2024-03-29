@@ -1,10 +1,5 @@
 pipeline {
   agent any
-  tools { 
-    maven 'DHT_MVN' 
-    jdk 'DHT_SENSE' 
-  }
-
   stages {
     stage('Check out') {
       steps {
@@ -18,7 +13,13 @@ pipeline {
         sh 'git bisect good 98ac319'
         sh 'git bisect bad 1986446'
         sh 'git bisect run mvn clean test'
+        sh 'git bisect reset'
       }
     }
+
+  }
+  tools {
+    maven 'DHT_MVN'
+    jdk 'DHT_SENSE'
   }
 }
