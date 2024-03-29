@@ -4,4 +4,7 @@ pipeline {
       maven 'DHT_MVN' 
       jdk 'DHT_SENSE' 
   }
+
+  stages {
+  }
 }
